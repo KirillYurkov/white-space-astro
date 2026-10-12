@@ -1,0 +1,40 @@
+---
+import Button from "@/components/Button/Button.astro";
+import "./_use.scss";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title: string;
+  "aria-label": string;
+}
+import useImg from "@/assets/img/use.jpg";
+---
+
+<section class="use">
+  <div class="use__container container">
+    <div class="use__text">
+      <h1 class="use__title title--h1">Use as Extension</h1>
+      <div class="use__desc desc">
+        Use the web clipper extension, available on Chrome and Firefox, to save
+        web pages or take screenshots as notes.
+      </div>
+      <Button
+        href="/trial"
+        label="Let’s Go"
+        class="btn--primary use__btn use__btn--free-trial"
+      >
+        <Icon name="arrow-right" aria-hidden="true" class="use-actions__icon" />
+      </Button>
+    </div>
+    <div class="use__img">
+      <Image
+        src={useImg}
+        alt="Картинка главного блока"
+        title="Картинка главного блока"
+        aria-label="Картинка главного блока"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+---
+import Button from "@/components/Button/Button.astro";
+import "./_projects.scss";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title?: string;
+  "aria-label"?: string;
+}
+import projectImg from "@/assets/img/project.jpg";
+---
+
+<section class="project">
+  <div class="project__container container">
+    <div class="project__text">
+      <h2 class="project__title title--h2">Project Management </h2>
+      <div class="project__desc desc">
+       Images, videos, PDFs and audio files are supported. Create math expressions and diagrams directly from the app. Take photos with the mobile app and save them to a note.
+      </div>
+      <Button
+        href="/trial"
+        label="Get started"
+        class="btn--primary project__btn project__btn--free-trial"
+      >
+        <Icon
+          name="arrow-right"
+          aria-hidden="true"
+          class="project-actions__icon"
+        />
+      </Button>
+    </div>
+    <div class="project__img">
+      <Image
+        src={projectImg}
+        alt="Картинка главного блока"
+        title="Картинка главного блока"
+        aria-label="Картинка главного блока"
+      />
+    </div>
+  </div>
+</section>

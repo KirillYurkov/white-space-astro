@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import "./_header.scss";
+import { Icon } from "astro-icon/components";
+import Button from "@/components/Button/Button.astro";
+const curPath = Astro.url.pathname;
+const isHome = curPath === "/";
+import { menuItems } from "@/data/data";
+import HeaderActions from "@/components/HeaderActions/HeaderActions.astro";
+---
+
+<header class="header">
+  <div class="header__container container">
+    {
+      isHome ? (
+        <span class="header__logo">
+          <img src="/logo.svg" alt="whitespace" />
+        </span>
+      ) : (
+        <a href="/" class="header__logo">
+          <img src="/logo.svg" alt="whitespace" />
+        </a>
+      )
+    }
+
+    <nav class="header-nav">
+      <ul class="header-nav__list">
+        {
+          menuItems.map((item, index) => {
+            return (
+              <li class="header-nav__item">
+                <a href={item.href} class="header-nav__link">
+                  {item.title}
+                </a>
+                <Button
+                  label=""
+                  class="header-nav__btn"
+                  data-button={index}
+                  aria-controls={`dropdown-menu-${index}`}
+                  aria-expanded="false"
+                  aria-label="Выпадающее меню"
+                >
+                  <Icon name="arrow-down" title="Выпадающее меню" />
+                </Button>
+                <ul
+                  class="header-nav-submenu__list"
+                  data-dropdown-menu={index}
+                  id={`dropdown-menu-${index}`}
+                  aria-hidden="true"
+                >
+                  {item.submenu &&
+                    item.submenu.map((sub) => {
+                      return (
+                        <li class="header-nav-submenu__item">
+                          <a
+                            href={sub.href}
+                            class="header-nav-submenu__link"
+                            title={sub.desc}
+                            aria-label={sub.desc}
+                          >
+                            {sub.title}
+                          </a>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </li>
+            );
+          })
+        }
+      <HeaderActions class="header-actions--mobile" />
+      </ul>
+    </nav>
+    <HeaderActions />
+    <Button class="burger header__burger" />
+  </div>
+</header>
+<script>
+  import "./header.js";
+</script>

@@ -1,0 +1,44 @@
+---
+import Button from "@/components/Button/Button.astro";
+import "./_hero.scss";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title: string;
+  "aria-label": string;
+}
+import heroImg from "@/assets/img/hero.jpg";
+---
+
+<section class="hero">
+  <div class="hero__container container">
+    <div class="hero__text">
+      <h1 class="hero__title title--h1">Get More Done with whitepace</h1>
+      <div class="hero__desc desc">
+        Project management software that enables your teams to collaborate,
+        plan, analyze and manage everyday tasks
+      </div>
+      <Button
+        href="/trial"
+        label="Try Whitepace free"
+        class="btn--primary hero__btn hero__btn--free-trial"
+      >
+        <Icon
+          name="arrow-right"
+          aria-hidden="true"
+          class="hero-actions__icon"
+        />
+      </Button>
+    </div>
+    <div class="hero__img">
+      <Image
+        src={heroImg}
+        alt="Картинка главного блока"
+        title="Картинка главного блока"
+        aria-label="Картинка главного блока"
+      />
+    </div>
+  </div>
+</section>

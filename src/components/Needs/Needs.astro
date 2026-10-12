@@ -1,0 +1,45 @@
+---
+import Button from "@/components/Button/Button.astro";
+import "./_needs.scss";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title: string;
+  "aria-label": string;
+}
+import needImg from "@/assets/img/needs.jpg";
+---
+
+<section class="need">
+  <div class="need__container container">
+    <div class="need__text">
+      <h1 class="need__title title--h1">Customise it to your needs</h1>
+      <div class="need__desc desc">
+        Customise the app with plugins, custom themes and multiple text editors
+        (Rich Text or Markdown). Or create your own scripts and plugins using
+        the Extension API.
+      </div>
+      <Button
+        href="/trial"
+        label="Let’s Go"
+        class="btn--primary need__btn need__btn--free-trial"
+      >
+        <Icon
+          name="arrow-right"
+          aria-hidden="true"
+          class="need-actions__icon"
+        />
+      </Button>
+    </div>
+    <div class="need__img">
+      <Image
+        src={needImg}
+        alt="Картинка главного блока"
+        title="Картинка главного блока"
+        aria-label="Картинка главного блока"
+      />
+    </div>
+  </div>
+</section>

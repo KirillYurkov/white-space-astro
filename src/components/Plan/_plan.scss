@@ -1,0 +1,120 @@
+.plan {
+  &__container {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    padding-top: fluid(140, 20);
+    padding-bottom: fluid(140, 40);
+
+    @include small-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @include mobile() {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &__text {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-column: span 12;
+
+    @include tablet {
+      grid-column: span 12;
+      justify-self: center;
+      max-width: 100%;
+    }
+
+    @include mobile {
+      grid-column: span 4;
+    }
+  }
+  &__title {
+    text-align: center;
+    position: relative;
+    margin-bottom: fluid(24, 20);
+    color: var(--color2);
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: 68%;
+      height: 24%;
+      top: 82%;
+      left: 28%;
+      background-image: url("/element-yellow.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center bottom;
+
+      @include desktop {
+        background-image: url("/element-yellow.svg");
+        width: 68%;
+        left: 28%;
+      }
+      @include small-desktop {
+        left: 40%;
+      }
+      @include tablet {
+        left: 40%;
+        width: 40%;
+        top: 74%;
+      }
+      @include mobile {
+        width: 30%;
+        left: 54%;
+        top: 76%;
+      }
+      @include small-mobile {
+        width: 70%;
+        left: 30%;
+        top: 80%;
+      }
+      @media screen and (width < 330px) {
+        background-image: url("/element-yellow-short.svg");
+        width: 30%;
+        left: 35%;
+        top: 80%;
+      }
+    }
+  }
+  &__desc {
+    margin-bottom: fluid(60, 30);
+    color: var(--color2);
+
+    @include tablet {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &-card__controls {
+    display: none;
+    @include small-tablet {
+      margin: 0 auto;
+      width: 100px;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    & a {
+      display: flex;
+      background-color: transparent;
+      border: 1px solid blue;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+      &.plan-card__controls--active {
+        background-color: blue;
+      }
+    }
+  }
+}

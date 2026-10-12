@@ -1,0 +1,44 @@
+---
+import Button from "@/components/Button/Button.astro";
+import "./_work.scss";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title?: string;
+  "aria-label"?: string;
+}
+import workImg from "@/assets/img/work.png";
+---
+
+<section class="work">
+  <div class="work__container container">
+    <div class="work__text">
+      <h2 class="work__title title--h2">Work together </h2>
+      <div class="work__desc desc">
+       With whitepace, share your notes with your colleagues and collaborate on them.
+You can also publish a note to the internet and share the URL with others.
+</div>
+      <Button
+        href="/trial"
+        label="Try it now"
+        class="btn--primary work__btn work__btn--free-trial"
+      >
+        <Icon
+          name="arrow-right"
+          aria-hidden="true"
+          class="work-actions__icon"
+        />
+      </Button>
+    </div>
+    <div class="work__img">
+      <Image
+        src={workImg}
+        alt="Картинка главного блока"
+        title="Картинка главного блока"
+        aria-label="Картинка главного блока"
+      />
+    </div>
+  </div>
+</section>

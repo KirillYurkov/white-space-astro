@@ -1,0 +1,133 @@
+.work {
+  background-color: #fff;
+  background-image: url("../../assets/icons/works-decor.svg");
+  background-repeat: no-repeat;
+  background-position-y: 56%;
+
+  &__container {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    gap: 32px;
+    padding-top: fluid(140, 20);
+    padding-bottom: fluid(140, 40);
+
+    @include mobile() {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &__text {
+    grid-column: 8 / span 5;
+    max-width: 672px;
+    order: 2;
+
+    @include tablet {
+      grid-column: span 12;
+      justify-self: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include small-tablet {
+      order: 0;
+    }
+
+    @include mobile {
+      grid-column: span 4;
+    }
+  }
+  &__title {
+    position: relative;
+    margin-bottom: fluid(24, 20);
+    color: var(--color2);
+    display: inline-flex;
+    flex-direction: column;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: 79%;
+      height: 100%;
+      top: 10%;
+      left: 24%;
+      background-image: url("/element-yellow.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center bottom;
+
+      @include tablet {
+        background-image: url("/element-yellow-short.svg");
+        width: 68%;
+        left: 73%;
+        translate: -50% 28%;
+      }
+      @include mobile {
+        background-image: url("/element-yellow-short.svg");
+        width: 70%;
+        left: 70%;
+        translate: -50% 4%;
+      }
+      @include small-mobile {
+        background-image: url("/element-yellow.svg");
+        width: 73%;
+        left: 53%;
+        translate: -50% 0%;
+      }
+    }
+    @include tablet {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__desc {
+    color: var(--color2);
+    margin-bottom: fluid(60, 30);
+
+    @include tablet {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__btn--free-trial {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    margin-bottom: fluid(40, 20);
+
+    @include tablet {
+      justify-content: center;
+    }
+
+    @include small-tablet() {
+      font-size: 16px;
+    }
+  }
+  & svg {
+    stroke: currentColor;
+    fill: none;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  &__img {
+    grid-column: span 6;
+
+    @include tablet {
+      grid-column: 2 / span 10;
+      width: 100%;
+    }
+
+    @include mobile {
+      grid-column: span 4;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.hero {
+  background-color: var(--secondary-500);
+  background-image: url("../../assets/icons/hero-decor.svg");
+  background-repeat: no-repeat;
+  background-position-y: 56%;
+  &__container {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    gap: 32px;
+    padding-top: fluid(140, 20);
+    padding-bottom: fluid(140, 40);
+
+    @include mobile() {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  &__text {
+    grid-column: span 6;
+
+    @include tablet {
+      grid-column: span 12;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include mobile {
+      grid-column: span 4;
+    }
+  }
+  &__title {
+    margin-bottom: fluid(24, 20);
+
+    @include tablet {
+      text-align: center;
+      max-width: 85%;
+    }
+  }
+  &__desc {
+    margin-bottom: fluid(60, 30);
+
+    @include tablet {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__btn--free-trial {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    margin-bottom: fluid(40, 20);
+
+    @include tablet {
+      justify-content: center;
+    }
+
+    @include small-tablet() {
+      font-size: 16px;
+    }
+  }
+  & svg {
+    stroke: currentColor;
+    fill: none;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  &__img {
+    background: var(--primary-100);
+    grid-column: span 6;
+
+    @include tablet {
+      grid-column: 2 / span 10;
+      width: 100%;
+    }
+
+    @include mobile {
+      grid-column: span 4;
+    }
+  }
+}

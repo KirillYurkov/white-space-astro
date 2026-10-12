@@ -1,0 +1,22 @@
+---
+import Footer from "@/components/Footer/Footer.astro";
+import Head from "@/components/Head.astro";
+import Header from "@/components/Header/Header.astro";
+let { title = "Whitespace", desc = "Добро пожаловать на Whitespace" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <Head title={title} desc={desc} />
+  </head>
+  <body>
+    <Header />
+    <main class="main">
+      <div class="wrapper">
+        <slot />
+      </main>
+    </div>
+      <Footer />
+  </body>
+</html>

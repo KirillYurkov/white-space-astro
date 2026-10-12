@@ -1,0 +1,182 @@
+.plan {
+  &-cards {
+    // НА ДЕСКТОПЕ: Стандартная сетка Grid
+    display: grid;
+    // grid-template-columns: repeat(12,1fr);
+    gap: 32px;
+    grid-column: 1 / -1;
+
+    @include small-tablet {
+      display: block; 
+    }
+  }
+
+  &-cards-slider {
+    width: 100%;
+  }
+
+  &-card {
+ width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #ffe492;
+    border-radius: 10px;
+    padding: 40px 44px;
+    background-color: #fff;
+    height: 100%; // На десктопе карточки будут одной высоты
+
+    &__title {
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 150%;
+      color: var(--color2);
+      margin-bottom: 24px;
+    }
+
+    &__price {
+      font-family: var(--font-family);
+      font-weight: 700;
+      font-size: 36px;
+      letter-spacing: -0.02em;
+      color: var(--color2);
+      margin-bottom: 24px;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+    
+    &__item {
+      position: relative;
+      font-family: var(--font1);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 125%;
+      letter-spacing: -0.02em;
+      color: var(--color2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      svg {
+        display: block;
+        margin-top: 2px;
+        fill: none;
+        stroke: currentColor;
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+    }
+
+    &__btn {
+      margin-top: auto; // Кнопка всегда внизу
+      align-items: flex-start;
+    }
+
+    @include hover {
+      box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.08);
+      background-color: var(--secondary-500);
+      border: transparent;
+      padding: 80px 44px;
+      transform: scale(1.05);
+
+      @include small-tablet {
+        transform: none;
+        padding: 40px 44px;
+      }
+
+      .plan-card__title { color: #fff; }
+      .plan-card__price { color: #ffe492; }
+      .plan-card__item { color: #fff; }
+      .plan-card__btn {
+        background: var(--primary-500);
+        color: #fff;
+        border: transparent;
+      }
+    }
+  }
+}
+
+.swiper {
+  &-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(12, 1fr) !important;
+    gap: 32px !important;
+    width: 100% !important;
+
+    @include small-tablet {
+      display: flex !important; 
+      gap: 0 !important;
+      width: auto !important;
+    }
+  }
+
+  &-slide {
+    width: 100%; 
+    height: auto; 
+   grid-column: span 4;
+    @include small-tablet {
+      width: 50% !important; 
+      flex-shrink: 0;
+    }
+    @include mobile {
+      width: 100% !important; 
+      flex-shrink: 0;
+    }
+
+    // Стиль ДЛЯ АКТИВНОЙ (центральной) карточки на мобилке
+    &.swiper-slide-active {
+      @include small-tablet {
+        .plan-card {
+          box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.08);
+          background-color: var(--secondary-500);
+          border-color: transparent;
+
+          .plan-card__title { color: #fff; }
+          .plan-card__price { color: #ffe492; }
+          .plan-card__item { color: #fff; }
+          .plan-card__btn {
+            background: var(--primary-500);
+            color: #fff;
+            border: transparent;
+          }
+        }
+      }
+    }
+  }
+
+ 
+  &-pagination {
+    display: none;
+
+    @include small-tablet {
+      display: flex !important;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+      width: 100%;
+    }
+
+    &-bullet {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid blue;
+      transition: all 0.3s ease;
+
+      &.plan-card__controls--active {
+        background-color: blue;
+        transform: scale(1.2);
+      }
+    }
+  }
+}

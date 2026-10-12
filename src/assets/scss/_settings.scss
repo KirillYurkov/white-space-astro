@@ -1,0 +1,197 @@
+@use "helpers/mixins" as *;
+@use "helpers/functions" as *;
+@use "helpers/media" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font1);
+  background-color: var(--bg-color);
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+}
+body.scroll-lock {
+  overflow: hidden;
+  padding-right: var(--removed-scrollbar-width, 0px);
+}
+header {
+  flex-shrink: 0;
+}
+main {
+  flex-grow: 1;
+  min-height: 100vh;
+}
+footer {
+  flex-shrink: 0;
+}
+/* ТЕХНИЧЕСКИЕ КЛАССЫ СЕТКИ */
+.wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1470px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Базовые стили для всех ссылок на сайте */
+a {
+  color: #fff;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+  @include hover() {
+    color: var(--primary-600);
+  }
+  &:focus-visible {
+    outline: 1px dashed #fff;
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  min-width: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* КНОПКИ СИСТЕМЫ */
+.btn--primary {
+  display: inline-block;
+  font-family: var(--font2);
+  background-color: var(--primary-500);
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 16px 40px;
+  transition: all 0.2s;
+
+  @include desktop {
+    padding: 16px 24px;
+  }
+
+  @include hover() {
+    background-color: var(--primary-600);
+    color: #fff;
+  }
+  &:focus-visible {
+    outline: 1px dashed #fff;
+  }
+}
+
+.btn--second {
+  display: inline-block;
+  color: var(--color2);
+  background-color: #fff;
+  font-family: var(--font1);
+  border: 1px solid #ffe492;
+  border-radius: 8px;
+  padding: 16px 40px;
+
+  @include hover {
+    color: var(--hover);
+    border-color: var(--hover);
+  }
+
+  &:focus-visible {
+    color: var(--hover);
+    border-color: var(--hover);
+    outline: 1px dashed var(--color2);
+  }
+
+  &:active {
+    color: var(--active);
+    border-color: var(--active);
+  }
+}
+
+/* ТИПОГРАФИКА (ЗАГОЛОВКИ И ОПИСАНИЯ) */
+.title {
+  &--h1 {
+    font-family: var(--font1);
+    font-weight: 700;
+    font-size: fluid(64, 36);
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  &--h2 {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: fluid(72, 36);
+    letter-spacing: -0.02em;
+    color: var(--color2);
+  }
+  :where(&--h3) {
+    font-family: var(--font1);
+    font-weight: 400;
+    @include fluid-text(30, 24);
+    line-height: 150%;
+    color: var(--title-h3);
+  }
+}
+
+:where(.subtitle) {
+  font-family: var(--font1);
+  font-weight: 400;
+  font-size: 14px;
+  color: #b5b5bd;
+}
+
+.desc {
+  font-family: var(--font1);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 167%;
+  letter-spacing: -0.02em;
+  color: #fff;
+
+  :where(&--h1) {
+    font-family: var(--font2);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 156%;
+    color: #4e616d;
+  }
+  :where(&--h2) {
+    font-family: var(--font2);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 156%;
+    color: #4e616d;
+  }
+  :where(&--h3) {
+    font-family: var(--font2);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 156%;
+    color: #4e616d;
+  }
+}
+.visually-hidden {
+  @include visually-hidden();
+}

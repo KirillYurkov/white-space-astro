@@ -1,0 +1,9 @@
+.footer{
+    background-color: red;
+    text-align: center;
+
+    @include hover(){
+        background-color: blue;
+        color:#fff;
+    }
+}

@@ -1,0 +1,25 @@
+---
+import './_header-actions.scss';
+import Button from "@/components/Button/Button.astro";
+import { Icon } from "astro-icon/components";
+const{class:additionaClass}=Astro.props;
+---
+
+<div class=`header-actions ${additionaClass}`>
+  <Button
+    href="/login"
+    label="login"
+    class="header-actions__btn header-actions__btn--login"
+  />
+  <Button
+    href="/trial"
+    label="Try Whitepace free"
+    class="btn--primary header-actions__btn header-actions__btn--free-trial"
+  >
+    <Icon
+      name="arrow-right"
+      aria-hidden="true"
+      class="header-actions__icon"
+    />
+  </Button>
+</div>

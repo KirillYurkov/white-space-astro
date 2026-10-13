@@ -1,0 +1,43 @@
+---
+import Button from "@/components/Button/Button.astro";
+import "./_data.scss";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title?: string;
+  "aria-label"?: string;
+}
+import dataImg from "@/assets/img/data.png";
+---
+
+<section class="data">
+  <div class="data__container container">
+    <div class="data__text">
+      <h2 class="data__title title--h2">100% your data</h2>
+      <div class="data__desc desc">
+      The app is open source and your notes are saved to an open format, so you'll always have access to them. Uses End-To-End Encryption (E2EE) to secure your notes and ensure no-one but yourself can access them.
+      </div>
+      <Button
+        href="/trial"
+        label="Read more"
+        class="btn--primary data__btn data__btn--free-trial"
+      >
+        <Icon
+          name="arrow-right"
+          aria-hidden="true"
+          class="data-actions__icon"
+        />
+      </Button>
+    </div>
+    <div class="data__img">
+      <Image
+        src={dataImg}
+        alt="Картинка главного блока"
+        title="Картинка главного блока"
+        aria-label="Картинка главного блока"
+      />
+    </div>
+  </div>
+</section>

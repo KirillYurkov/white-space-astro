@@ -5,38 +5,39 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const initPlanSlider = () => {
-  const sliderElement = document.querySelector(".plan-cards-slider");
+  const sliderElement = document.querySelector(".plan-cards");
   if (!sliderElement) return;
 
-  let swiperInstance = null;
+  new Swiper(sliderElement, {
+    modules: [Pagination],
 
-  const handleResize = () => {
-    const isMobileOrTablet = window.innerWidth <= 769;
-
-    if (isMobileOrTablet) {
-  
-      if (!swiperInstance) {
-        swiperInstance = new Swiper(sliderElement, {
-          modules: [Pagination],
-          slidesPerView: "auto",
-          centeredSlides: true,
-          spaceBetween: 32,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-        });
-      }
-    } else {
-
-      if (swiperInstance) {
-        swiperInstance.destroy(true, true);
-        swiperInstance = null;
-      }
-    }
-  };
-  window.addEventListener("resize", handleResize);
-  handleResize();
+    breakpoints: {
+      769: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+        enabled: true,
+        centeredSlides: false,
+      },
+      577: {
+        initialSlide: 1,
+        slidesPerView: 2,
+        spaceBetween: 32,
+        enabled: true,
+        centeredSlides: true,
+      },
+      576: {
+        initialSlide: 0,
+        slidesPerView: 1,
+        enabled: true,
+        spaceBetween: 20,
+      },
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
 };
 
-document.addEventListener("DOMContentLoaded", initPlanSlider);
+initPlanSlider();
+document.addEventListener("astro:page-load", initPlanSlider);

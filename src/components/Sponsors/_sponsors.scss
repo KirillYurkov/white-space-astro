@@ -1,0 +1,83 @@
+.sponsors {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+    padding-top: fluid(140, 20);
+    padding-bottom: fluid(140, 40);
+  }
+  &__title {
+    position: relative;
+    margin-bottom: fluid(100, 20);
+
+    @include tablet {
+      margin-bottom: 100px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: 68%;
+      height: 100%;
+      top: 30%;
+      left: 32%;
+      background-image: url("/element-yellow-short.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center bottom;
+
+      @include tablet {
+        width: 70%;
+        left: 32%;
+      }
+    }
+  }
+  &__images {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: fluid(100, 20);
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 100px;
+    }
+  }
+  &__item {
+    max-width: 287px;
+  }
+  &__img {
+    &[alt="apple"] {
+      width: 55px;
+    }
+    &[alt="microsoft"] {
+      width: 287px;
+
+      @include mobile {
+        width: 213px;
+      }
+    }
+    &[alt="slack"] {
+      width: 280px;
+
+      @include mobile {
+        width: 192px;
+      }
+    }
+    &[alt="google"] {
+      width: 210px;
+
+      @include mobile {
+        width: 140px;
+      }
+    }
+  }
+}

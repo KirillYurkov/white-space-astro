@@ -1,0 +1,49 @@
+---
+import './_sponsors.scss';
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title?: string;
+  "aria-label"?: string;
+}
+
+import { sponsorsImages } from "@/data/images";
+import { sponsors } from "@/data/data";
+import type { ImageMetadata } from "astro";
+const preSponsors = sponsors.map((sponsor) => {
+  const imgObj = sponsorsImages[sponsor.src] as { default: ImageMetadata };
+
+  return {
+    ...sponsor,
+    src: imgObj?.default,
+  };
+});
+---
+
+<section class="sponsors">
+  <div class="sponsors__container container">
+    <h2 class="sponsors__title title--h2">Our sponsors</h2>
+    <div class="sponsors__images">
+      <ul class="sponsors__list">
+        {
+          preSponsors.map(({ title, src, alt, "aria-label": ariaLabel }) => {
+            return (
+              <li class="sponsors__item">
+                <Image
+                class="sponsors__img"
+                  src={src}
+                  title={title}
+                  alt={`${alt}`}
+                  aria-label={`${ariaLabel}`}
+                  inferSize={true}
+                  loading="lazy"
+                />
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
+</section>

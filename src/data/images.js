@@ -1,5 +1,5 @@
-export const collectionsImages = import.meta.glob(
-  "/src/assets/img/collections/**/*.{jpg,jpeg,png,gif}",
+export const sponsorsImages = import.meta.glob(
+  "/src/assets/img/**/*.{jpg,jpeg,png,gif}",
   { eager: true },
 );
 

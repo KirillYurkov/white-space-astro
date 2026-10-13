@@ -111,7 +111,7 @@ export const menuItems: Menu[] = [
 ];
 
 interface iPlan {
-  id:number
+  id: number;
   title: string;
   price: number;
   currency: string;
@@ -121,7 +121,7 @@ interface iPlan {
 
 export const plans: iPlan[] = [
   {
-    id:0,
+    id: 0,
     title: "Free",
     price: 0,
     currency: "$",
@@ -137,7 +137,7 @@ export const plans: iPlan[] = [
     buttonText: "Get Started",
   },
   {
-    id:1,
+    id: 1,
     title: "Personal",
     price: 11.99,
     currency: "$",
@@ -153,7 +153,7 @@ export const plans: iPlan[] = [
     buttonText: "Get Started",
   },
   {
-    id:2,
+    id: 2,
     title: "Organization",
     price: 49.99,
     currency: "$",
@@ -167,5 +167,38 @@ export const plans: iPlan[] = [
       "Add due dates, reminders, and notifications to your tasks",
     ],
     buttonText: "Get Started",
+  },
+];
+
+interface ISponsors {
+  src: string;
+  alt?: string;
+  title?: string;
+  "aria-label"?: string;
+}
+export const sponsors: ISponsors[] = [
+  {
+    title: "apple",
+    alt: "apple",
+    "aria-label": "apple",
+    src: "/src/assets/img/apple.png",
+  },
+  {
+    title: "microsoft",
+    alt: "microsoft",
+    "aria-label": "microsoft",
+    src: "/src/assets/img/microsoft.png",
+  },
+  {
+    title: "slack",
+    alt: "slack",
+    "aria-label": "slack",
+    src: "/src/assets/img/slack.png",
+  },
+  {
+    title: "google",
+    alt: "google",
+    "aria-label": "google",
+    src: "/src/assets/img/google.png",
   },
 ];

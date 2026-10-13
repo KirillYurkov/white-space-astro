@@ -1,0 +1,25 @@
+---
+import "./_benefits.scss";
+import Button from "@/components/Button/Button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="benefits">
+    <div class="benefits__container container">
+
+        <h2 class="benefits__title title--h2">Your work, everywhere you&nbspare</h2>
+        <p class="benefits__desc desc">
+    Access your notes from your computer, phone or tablet by synchronising with
+    various services, including whitepace, Dropbox and OneDrive. The app is
+    available on Windows, macOS, Linux, Android and iOS. A terminal app is also
+    available!
+  </p>
+  <Button
+    href="/trial"
+    label="Try Taskey"
+    class="btn--primary project__btn project__btn--free-trial"
+  >
+    <Icon name="arrow-right" aria-hidden="true" class="project-actions__icon" />
+</Button>
+</div>
+</section>

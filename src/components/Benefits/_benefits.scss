@@ -1,0 +1,123 @@
+.benefits {
+  background-color: var(--secondary-500);
+  &__container {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding-top: fluid(140, 20);
+    padding-bottom: fluid(140, 40);
+
+    background-image: url("../../assets/icons/benefits-decor.svg");
+    background-repeat: no-repeat;
+    background-size: 300px auto;
+    background-position: -4% -116%;
+    @include small-desktop {
+      background-position: -10% 128%;
+    }
+
+    @include tablet {
+      align-items: flex-start;
+      background-image: none;
+    }
+    @include small-tablet {
+      background-image: url("../../assets/icons/benefits-decor.svg");
+    }
+
+    @include mobile() {
+      background-image: none;
+    }
+  }
+  &__title {
+    position: relative;
+    margin-bottom: fluid(24, 20);
+    color: #fff;
+    @include tablet {
+      align-items: flex-start;
+      max-width: 85%;
+    }
+
+    @include mobile {
+      max-width: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: 48%;
+      height: 24%;
+      top: 82%;
+      left: 64%;
+      background-image: url("/element-blue.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center bottom;
+
+      @include desktop {
+        background-image: url("/element-blue.svg");
+      }
+
+      @include tablet {
+        width: 32%;
+        left: 72%;
+    }
+    @include small-tablet {
+        width: 32%;
+        height: 28px;
+        top:76%;
+        left: 0;
+    
+      }
+      @include mobile {
+        width: 32%;
+        left: 0%;
+        top: 78%;
+      }
+      @include small-mobile {
+        width: 42%;
+        left: 60%;
+        top: 70%;
+      }
+      @media screen and (width<=381px) {
+        width: 42%;
+        left: 0%;
+        top: 78%;
+      }
+    }
+  }
+  &__desc {
+    margin-bottom: fluid(60, 30);
+
+    @include tablet {
+      max-width: 604px;
+      text-align: flex-start;
+    }
+  }
+  &__btn--free-trial {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    margin-bottom: fluid(40, 20);
+
+    @include tablet {
+      justify-content: center;
+    }
+
+    @include small-tablet() {
+      font-size: 16px;
+    }
+  }
+  & svg {
+    stroke: currentColor;
+    fill: none;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+}

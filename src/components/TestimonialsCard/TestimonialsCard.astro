@@ -1,0 +1,45 @@
+
+---
+import "./_testimonials-card.scss";
+import { plans } from "@/data/data";
+import Button from "@/components/Button/Button.astro";
+import { Icon } from "astro-icon/components";
+const { class: additionalClass } = Astro.props;
+---
+
+<div class="testimonials-cards swiper">
+  <div class="swiper-wrapper">
+    {
+      plans.map(({ title, price, currency, features, buttonText}) => {
+        return (
+          <div class="swiper-slide">
+            <article class="testimonials-card">
+              <span class="testimonials-card__title">{title}</span>
+              <span class="testimonials-card__price">
+                {currency}
+                {price}
+              </span>
+              <ul class="testimonials-card__list">
+                {features.map((feature) => {
+                  return (
+                    <li class="testimonials-card__item">
+                      <Icon name="check" />
+                      {feature}
+                    </li>
+                  );
+                })}
+              </ul>
+              <Button label={buttonText} class="btn--second testimonials-card__btn" />
+            </article>
+          </div>
+        );
+      })
+    }
+  </div>
+  
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  import "./testimonials-card.js";
+</script>

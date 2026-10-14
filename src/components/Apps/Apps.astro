@@ -1,0 +1,43 @@
+---
+import "./_apps.scss";
+import Button from "@/components/Button/Button.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title?: string;
+  "aria-label"?: string;
+}
+import appImg from "@/assets/img/apps.png";
+---
+
+<section class="app">
+  <div class="app__container container">
+    <div class="app__text">
+      <h2 class="app__title title--h2">Work with Your Favorite Apps Using whitepace</h2>
+      <p class="app__desc desc">
+      Whitepace teams up with your favorite software. Integrate with over 1000+ apps with Zapier to have all the tools you need for your project success.
+</p>
+      <Button
+        href="/apps"
+        label="Read more"
+        class="btn--primary app__btn app__btn--free-trial"
+      >
+        <Icon
+          name="arrow-right"
+          aria-hidden="true"
+          class="app-actions__icon"
+        />
+      </Button>
+    </div>
+    <div class="app__img">
+      <Image
+        src={appImg}
+        alt="Картинка блока приложений"
+        title="Картинка блока приложений"
+        aria-label="Картинка блока приложений"
+      />
+    </div>
+  </div>
+</section>

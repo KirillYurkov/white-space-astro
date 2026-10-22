@@ -40,4 +40,4 @@ const initTestimonialsSlider = () => {
 };
 
 initTestimonialsSlider();
-document.addEventListener("astro:page-load", initPlanSlider);
+document.addEventListener("astro:page-load", initTestimonialsSlider);

@@ -1,42 +1,44 @@
-
 ---
 import "./_testimonials-card.scss";
 import { plans } from "@/data/data";
 import Button from "@/components/Button/Button.astro";
 import { Icon } from "astro-icon/components";
+import { testimonials } from "@/data/data";
+import { Image } from "astro:assets";
 const { class: additionalClass } = Astro.props;
 ---
 
 <div class="testimonials-cards swiper">
   <div class="swiper-wrapper">
     {
-      plans.map(({ title, price, currency, features, buttonText}) => {
+      testimonials.map(({ testimonial, author, degree, job, src, alt }) => {
         return (
           <div class="swiper-slide">
             <article class="testimonials-card">
-              <span class="testimonials-card__title">{title}</span>
-              <span class="testimonials-card__price">
-                {currency}
-                {price}
-              </span>
-              <ul class="testimonials-card__list">
-                {features.map((feature) => {
-                  return (
-                    <li class="testimonials-card__item">
-                      <Icon name="check" />
-                      {feature}
-                    </li>
-                  );
-                })}
-              </ul>
-              <Button label={buttonText} class="btn--second testimonials-card__btn" />
+              <Icon
+                class="testimonials-card__icon"
+                name="quote"
+                aria-hidden="true"
+                is:inline
+              />
+
+              <p class="testimonials-card__desc desc">{testimonial}</p>
+              <div class="testimonials-card__bottom">
+                <div class="testimonials-card__avatar">
+                  <Image src={src} alt={`${alt}`} width={90} height={90} />
+                </div>
+                <div class="testimonials-card__author">
+                  <span class="testimonials-card__author-name">{author}, {degree}</span>
+                  <span class="testimonials-card__author-job">{job}</span>
+                </div>
+              </div>
             </article>
           </div>
         );
       })
     }
   </div>
-  
+
   <div class="swiper-pagination"></div>
 </div>
 

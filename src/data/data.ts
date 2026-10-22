@@ -1,3 +1,5 @@
+import Testimonials from "@/components/Testimonials/Testimonials.astro";
+
 interface SubMenu {
   title: string;
   href: string;
@@ -200,5 +202,67 @@ export const sponsors: ISponsors[] = [
     alt: "google",
     "aria-label": "google",
     src: "/src/assets/img/google.png",
+  },
+];
+
+interface Testimonials {
+  testimonial: string;
+  author: string;
+  degree: string;
+  job: string;
+  src: string;
+  title?: string;
+  alt?: string;
+}
+export const testimonials: Testimonials[] = [
+  {
+    testimonial:
+      "Whitepate is designed as a collaboration tool for businesses that is a full project management solution.",
+    author: "Oberon Shaw",
+    degree: "MCH",
+    job: "Head of Talent Acquisition, North America",
+    src: "/src/assets/img/avatar-oberon.png",
+    title: "Oberon Shaw Avatar",
+    alt: "Portrait of Oberon Shaw",
+  },
+  {
+    testimonial:
+      "The real-time document editing and canvas features completely replaced three other tools we were paying for. It streamlined our entire design-to-development workflow.",
+    author: "Elena Rostova",
+    degree: "PhD",
+    job: "Lead UI/UX Architect",
+    src: "/src/assets/img/avatar-elena.png",
+    title: "Elena Rostova Avatar",
+    alt: "Portrait of Elena Rostova",
+  },
+  {
+    testimonial:
+      "Managing a remote team of 50+ engineers used to be chaotic. With this web app, tracking milestones and setting sprint dependencies takes less than five minutes a day.",
+    author: "Marcus Vance",
+    degree: "MBA",
+    job: "VP of Product Engineering",
+    src: "/src/assets/img/avatar-marcus.png",
+    title: "Marcus Vance Avatar",
+    alt: "Portrait of Marcus Vance",
+  },
+  {
+    testimonial:
+      "An absolute game-changer for cross-functional communication. The automated status updates keep our stakeholders in the loop without endless weekly sync meetings.",
+    author: "Sora Tanaka",
+    degree: "ScD",
+    job: "Director of Operations & Strategy",
+    src: "/src/assets/img/avatar-bob.png",
+    title: "Sora Tanaka Avatar",
+    alt: "Portrait of Sora Tanaka",
+  },
+  {
+    testimonial:
+      "We migrated all our client onboarding pipelines over a weekend. The interface is intuitive enough that our non-technical clients adopted it instantly without training.",
+    author: "Amara Diop",
+    degree: "PMP",
+    job: "Senior Global Project Manager",
+    src: "/src/assets/img/avatar-amara.png",
+    title: "Amara Diop Avatar",
+    alt: "Portrait of Amara Diop",
   },
 ];

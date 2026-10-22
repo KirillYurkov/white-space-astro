@@ -25,7 +25,7 @@ export default defineConfig({
         plugins: [
           {
             name: "removeAttrs",
-            params: { attrs: "(fill|stroke)" },
+            params: { attrs: "*:(fill|stroke)" },
           },
           { name: "removeDimensions" },
         ],

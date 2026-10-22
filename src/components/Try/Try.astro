@@ -1,0 +1,45 @@
+---
+import Button from "@/components/Button/Button.astro";
+import "./_try.scss";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+interface IImage {
+  src: string;
+  alt: string;
+  title?: string;
+  "aria-label"?: string;
+}
+// import apple from "@/assets/icons/apple.svg";
+---
+
+<section class="try">
+  <div class="try__container container">
+    <div class="try__text">
+      <h2 class="try__title title--h2">Try Whitepace today</h2>
+      <p class="try__desc desc">
+        Get started for free. Add your whole team as your needs grow.
+      </p>
+      <Button
+        href="/trial"
+        label="Try Taskey free"
+        class="btn--primary try__btn try__btn--free-trial"
+      >
+        <Icon name="arrow-right" aria-hidden="true" class="try-actions__icon" />
+      </Button>
+      <p class="try__desc desc">On a big team? Contact sales</p>
+    </div>
+    <div class="try__platforms">
+        <ul class="try__list">
+            <li class="try__item">
+                <Icon name="apple"/>
+            </li>
+            <li class="try__item">
+                <Icon name="windows"/>
+            </li>
+            <li class="try__item">
+                <Icon name="android"/>
+            </li>
+        </ul>
+    </div>
+  </div>
+</section>
